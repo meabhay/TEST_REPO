@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderAI - Intelligent Travel Companion</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Animated Background Elements -->
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+    
+    <!-- Main App Header -->
+    <header id="app-header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-map-marked-alt"></i>
+          <h1>Wander<span>AI</span></h1>
+        </div>
+        <div class="app-controls">
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div id="main-content">
+      <!-- Sidebar with Search -->
+      <div id="sidebar">
+        <div class="search-container glassmorphism">
+          <div class="search-input">
+            <i class="fas fa-search"></i>
+            <input type="text" id="locationInput" placeholder="Where would you like to explore?">
+            <button id="searchButton" class="primary-btn">
+              <span>Discover</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="search-tips">
+            <span>Try: "Paris landmarks" or "Tokyo attractions"</span>
+          </div>
+        </div>
+
+        <div class="results-container">
+          <div class="results-header">
+            <h3>Featured Locations</h3>
+            <div class="sort-options">
+              <span>Sort by:</span>
+              <select id="sort-select">
+                <option value="rating">Top Rated</option>
+                <option value="distance">Nearest</option>
+                <option value="reviews">Most Reviews</option>
+              </select>
+            </div>
+          </div>
+          <div class="results-scroller">
+            <ul id="results"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Map -->
+      <div id="map-container">
+        <div id="map"></div>
+        <div class="map-controls">
+          <button id="current-location" class="map-btn" title="Find my location">
+            <i class="fas fa-location-crosshairs"></i>
+          </button>
+          <button id="zoom-in" class="map-btn" title="Zoom in">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button id="zoom-out" class="map-btn" title="Zoom out">
+            <i class="fas fa-minus"></i>
+          </button>
+        </div>
+        <div class="map-watermark">
+          <span>WanderAI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Premium Chat Assistant -->
+  <div id="chatbot-container" class="glassmorphism">
+    <div id="chatbot-header" class="gradient-bg">
+      <div class="chatbot-title">
+        <div class="ai-avatar">
+          <div class="avatar-pulse"></div>
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3>Travel Assistant</h3>
+      </div>
+      <div class="chatbot-actions">
+        <button id="minimize-chatbot" class="icon-btn">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button id="close-chatbot" class="icon-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div id="chatbot-messages"></div>
+    
+    <div id="chatbot-input" class="glassmorphism">
+      <div class="input-container">
+        <input type="text" id="user-message" placeholder="Ask about this place...">
+        <div class="input-actions">
+          <button id="voice-input" class="icon-btn voice-btn" title="Voice Input">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button id="send-message" class="primary-btn small">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+      <div class="quick-suggestions">
+        <span>Quick asks:</span>
+        <button class="suggestion-btn">Nearby restaurants</button>
+        <button class="suggestion-btn">Best photo spots</button>
+        <button class="suggestion-btn">Opening hours</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Action Button -->
+  <button id="open-chatbot" class="floating-btn pulse-animation">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-spinner">
+        <div class="spinner-circle"></div>
+      </div>
+      <p>Exploring the world for you...</p>
+    </div>
+  </div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmxQ1qHLTua-aWQewjaV5SeTQS2vCIGWc&libraries=places"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -11,13 +11,13 @@ let currentPlaceId = null;
 let placesService;
 let currentChatPlace = null;
 let chatHistory = [];
-const GEMINI_API_KEY = "AIzaSyBi8AvYkKxZBBNMBL1PTTMrP8KwPoDNtfE"; // Replace with your actual API key
+const GEMINI_API_KEY = "AIzaSyBi8AvYkKxZBBNMBL1PTTMrP8KwPoDNtfE"; 
 let recognition;
 let isListening = false;
 
-// ======================
+
 // Initialization
-// ======================
+
 window.onload = function () {
   initMap();
   initAutocomplete();
@@ -64,7 +64,7 @@ function initAutocomplete() {
   autocomplete.addListener("place_changed", () => {
     const place = autocomplete.getPlace();
     if (place.photos && place.photos.length > 0) {
-      // You could show a preview of the city here if desired
+
     }
   });
 }
@@ -227,9 +227,9 @@ function ZoomControl(controlDiv, map) {
   });
 }
 
-// ======================
+
 // Theme Management
-// ======================
+
 function checkThemePreference() {
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const savedTheme = localStorage.getItem("theme");
@@ -254,9 +254,9 @@ function toggleTheme() {
   }
 }
 
-// ======================
+
 // Location Functions
-// ======================
+
 function locateUser() {
   if (navigator.geolocation) {
     showLoading(true);
@@ -548,9 +548,9 @@ async function fetchCompletePlaceDetails(placeId) {
   });
 }
 
-// ======================
+
 // UI Rendering Functions
-// ======================
+
 function renderPlaceInfo(place, marker) {
   const content = `
     <div class="info-window">
@@ -760,9 +760,9 @@ function showLocationNotFoundMessage() {
     '<li class="loading-item" style="text-align:center;color:#666;padding:30px;"><i class="fas fa-exclamation-circle" style="font-size:24px;margin-bottom:10px;display:block;"></i>Location not found. Please check the spelling and try again.</li>';
 }
 
-// ======================
+
 // Chatbot Functions
-// ======================
+
 async function sendMessage() {
   const userInput = document.getElementById("user-message");
   const message = userInput.value.trim();
@@ -1113,9 +1113,9 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   return Math.round(R * c * 1000); // Distance in meters
 }
 
-// ======================
+
 // Utility Functions
-// ======================
+
 async function fetchGeminiAPI(prompt) {
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
@@ -1256,7 +1256,7 @@ function showLoading(show) {
   }
 }
 
-// Add this to your JavaScript code
+
 document.querySelector('.results-scroller').addEventListener('wheel', function(e) {
   // Only prevent default if we're actually scrolling the results (not at top/bottom)
   const { scrollTop, scrollHeight, clientHeight } = this;
